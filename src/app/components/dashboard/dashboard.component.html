@@ -1,0 +1,62 @@
+<mat-toolbar >
+  
+   <h2 class="tool" matTooltip="Connected"><mat-icon id="mat">panorama_fish_eye</mat-icon></h2>
+    &nbsp;&nbsp;<button  class="btn" routerLink="/home">Home</button>
+      &nbsp;&nbsp;|
+     <span class="fill"></span>
+     <button  class="btn" routerLink="/dashboard"  routerLinkActive="active" >Dashboard</button>
+     &nbsp;&nbsp;
+     <span class="fill"></span>
+      <span class="material-icons" id="plus" routerLink="/dashboard" matTooltip="Add dashboards" (click)="openDialog()">
+        add_box
+        </span>
+         
+     <span class="fill"></span>
+    </mat-toolbar>
+<div class="box1"></div>
+
+    <h2>Dashboards</h2>
+    
+    <!-- <div class="box" *ngFor="let dashboard of dashboards"> 
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="button"> 
+        <mat-icon class="icon">more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item >
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
+        <button mat-menu-item> 
+          <mat-icon>filter_none</mat-icon>
+          <span >View</span>
+        </button>
+        </mat-menu>
+     
+    </div> -->
+
+      
+    <mat-card class="box" *ngFor="let dashboard of dashboards">
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="button">  
+        <mat-icon class="icon">more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" >
+        <button mat-menu-item (click)="openDialog1(dashboard.id)">
+          <mat-icon>edit</mat-icon >
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item (click)="deleteDashboard(dashboard.id)">
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
+        </mat-menu>
+      <mat-card-header>
+        <mat-card-title  (click)="viewDashboard(dashboard.id)">{{dashboard.name}}</mat-card-title>
+        <mat-card-subtitle>{{dashboard.description}}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <!-- [routerLink]="['/dashboards/' + dashboard.id ]" -->

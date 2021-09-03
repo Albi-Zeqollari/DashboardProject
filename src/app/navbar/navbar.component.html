@@ -1,0 +1,37 @@
+
+    <mat-toolbar >
+      <button class="tool" matTooltip="Connected"><mat-icon id="mat">panorama_fish_eye</mat-icon></button>
+    &nbsp;&nbsp;<a class="link" routerLinkActive="active" routerLinkActive="active"> Home</a>
+      &nbsp;&nbsp;|
+     <span class="fill"></span>
+     <button  class="btn" routerLink="/dashboard">Dashboard</button>
+     &nbsp;&nbsp;
+     <span class="fill"></span>
+    </mat-toolbar>
+
+    <div  class="box">
+
+    </div>
+
+    <h1>Welcome</h1>
+
+
+    <div *ngIf="dashboards && dashboards!.length>0; else noDashboard">
+  
+    <mat-card class="example-card1" *ngFor="let d of dashboards">
+    
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{d.name}}</mat-card-title>
+        <mat-card-subtitle><button class="btn1" (click)="go(d.id)">Go to dashboard</button></mat-card-subtitle>
+      </mat-card-header>
+   
+    </mat-card>
+
+  </div>
+
+  <div class="dashboard">
+    <ng-template #noDashboard >No Dashboards</ng-template>
+  </div>
+
+     

@@ -1,0 +1,66 @@
+
+<div>
+
+    <form  class="form">
+        <h1>Edit widget</h1>
+    
+        <div class="form-group">
+            <mat-form-field appearance="fill" floatLabel="never" [style.width.px]=327>
+            <mat-label>Name</mat-label>
+            <input matInput type="text"  class="form-control" id="name"
+            [(ngModel)] = "widget.widgetname" name="Name" required >
+        </mat-form-field>
+        </div>
+
+        <div class="form-group">
+
+            <mat-form-field appearance="fill" floatLabel="never" [style.width.px]=327>
+            <mat-label>Description</mat-label>
+            <input matInput type="text"  class="form-control" id="description"
+            [(ngModel)] ="widget.widgetdescription" name="description" required>
+        </mat-form-field>
+
+        </div>
+
+        <div class="form-group">
+            <mat-form-field appearance="fill"  [style.width.px]=327>
+            <mat-label>DataSource: http://localhost:8080/socket</mat-label>
+            <input matInput type="text"  class="form-control" id="dataSource"
+            [(ngModel)] = "widget.dataSource" name="dataSource"  disabled >
+        </mat-form-field>
+        </div>
+
+        <div class="form-group">
+            <mat-form-field appearance="fill" [style.width.px]=327>
+                <mat-label>Chart Type</mat-label>
+                <mat-select [(ngModel)]="widget.chartType" name="chartType">
+                  <mat-option value="line">line</mat-option>
+                  <mat-option value="bar">bar</mat-option>
+                  <mat-option value="pie">pie</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+        </div>
+
+
+        
+        <div class="form-group">
+            <mat-form-field appearance="fill" floatLabel="never" [style.width.px]=327>
+            <mat-label>Frequency</mat-label>
+            <input matInput type="text"  class="form-control" id="frequency"
+            [(ngModel)] = "widget.frequency" name="frequency" required >
+        </mat-form-field>   
+        </div>
+        
+        <br>
+        <button mat-button color="primary" type="submit" mat-dialog-close (click)="onSubmit()" (click)="openSnackbar('Widget edited')">Save</button>
+
+        <button mat-button class="bt" mat-dialog-close> Close</button>
+
+        
+    
+    </form>
+    <br>
+    </div> 
+    
+

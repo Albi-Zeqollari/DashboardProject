@@ -1,0 +1,86 @@
+
+<mat-toolbar >
+  
+    <h2 class="tool" matTooltip="Connected" ><mat-icon  id="mat">panorama_fish_eye</mat-icon></h2>
+     &nbsp;&nbsp;<button  class="btn" routerLink="/home">Home</button>
+       &nbsp;&nbsp;|
+      <span class="fill"></span>
+      <button  class="btn" routerLink="/dashboard" >Dashboard</button>
+      &nbsp;&nbsp;
+      <span class="fill"></span>
+       <span class="material-icons" id="plus"  matTooltip="Add Widgets" (click)="openDialog()">
+         add_box
+         </span>
+          
+      <span class="fill"></span>
+     </mat-toolbar>
+ <div class="box1"></div>
+
+
+<h1>Widgets</h1>
+
+
+ <!-- <div class="example-boundary">
+
+  <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag *ngFor="let w of widgets">
+    <div> 
+     
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="button"> 
+        <mat-icon class="icon">more_hori</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" >
+        <button mat-menu-item  (click)="editWidget(w.id)"> 
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item (click)="deleteWidget()">
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
+        </mat-menu>
+      <mat-card-header>
+      
+        <div mat-card-avatar class="example-header-image"></div>
+      </mat-card-header>
+    <span>{{w.widgetname}}</span>
+    </div>
+     </div>
+</div>   -->
+
+
+<gridster [options]="options" *ngFor="let item of dataSource" >
+  <gridster-item [item]="item"  *ngFor="let w of widgets">
+  
+    {{w.widgetname}} 
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="button"> 
+            
+              <mat-icon class="icon">more_hori</mat-icon>
+            </button> 
+            <mat-menu #menu="matMenu" >
+              <button mat-menu-item (click)="openDialog1(w.id)" > 
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item (click)="deleteWidget(w.id)">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+              </mat-menu>
+              
+              <div style="display: block; width:90%; height: 70%;">
+              <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="w.chartType">
+              </canvas>
+              </div>
+    
+              <a href="#" (click)="downloadCanvas($event)" class="download">Download as image</a> 
+
+             
+  </gridster-item>
+
+</gridster>
+<button (click)="savePosition()">Save</button>

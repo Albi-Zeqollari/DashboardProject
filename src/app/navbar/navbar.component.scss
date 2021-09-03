@@ -1,0 +1,73 @@
+.fill{
+   
+       margin-left:  7px;
+     
+}
+
+.btn{
+    
+background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.btn.active{
+  color: burlywood;
+}
+
+#mat{
+  color: green;
+}
+.box{
+
+  border: lightslategrey solid 2px ;
+}
+
+.tool{
+margin-top: 9px;
+border: none;
+}
+
+.link{
+  color: burlywood;
+  font-size: larger;
+}
+.example-card1{
+
+
+
+  position: relative;
+  top: 250px;
+  width: 300px;
+  padding: 10px;
+  margin: 30px;
+  text-align: center;
+  float: left;
+  background-color:fade-out($color: lightslategrey, $amount: 0);
+    
+
+}
+h1{
+
+  font-size: 100px;
+  font-family: cursive;
+  text-align: center;
+  margin-top: 40px;
+}
+.btn1{
+ 
+ 
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-size: large;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
